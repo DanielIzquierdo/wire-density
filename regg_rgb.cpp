@@ -14,7 +14,7 @@ main (int argc, char** argv)
   pcl::search::Search <pcl::PointXYZRGB>::Ptr tree = boost::shared_ptr<pcl::search::Search<pcl::PointXYZRGB> > (new pcl::search::KdTree<pcl::PointXYZRGB>);
 
   pcl::PointCloud <pcl::PointXYZRGB>::Ptr cloud (new pcl::PointCloud <pcl::PointXYZRGB>);
-  if ( pcl::io::loadPCDFile <pcl::PointXYZRGB> ("medium_cloud_87.pcd", *cloud) == -1 )
+  if ( pcl::io::loadPCDFile <pcl::PointXYZRGB> ("nubes/medium_clouds/medium_cloud_88.pcd", *cloud) == -1 )
   {
     std::cout << "Cloud reading failed." << std::endl;
     return (-1);
@@ -61,8 +61,8 @@ main (int argc, char** argv)
   {
     boost::this_thread::sleep (boost::posix_time::microseconds (100));
   }
-  pcl::io::savePCDFileASCII ("clustered_cloud.pcd", *colored_cloud);
-  std::cerr << "Saved " << colored_cloud->size () << " data points to clustered_cloud.pcd." << std::endl;
+  pcl::io::savePCDFileASCII ("clustered_cloud_88.pcd", *colored_cloud);
+  std::cerr << "Saved " << colored_cloud->size () << " data points." << std::endl;
 
 
   return (0);
