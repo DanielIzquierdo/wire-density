@@ -1,0 +1,9 @@
+/nubes
+*.pcd
+.ipynb_checkpoints/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+region_growing_rgb_segmentation
+PCD_preclassification.ipynb
