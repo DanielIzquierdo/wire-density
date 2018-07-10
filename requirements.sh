@@ -5,7 +5,7 @@
 # Install ubuntu packages
 sudo apt-get update -y
 
-sudo apt-get install cmake git wget libeigen3-dev libflann-dev libvtk5-dev libboost-all-dev libusb-1.0-0-dev libqhull-dev libpcap0.8-dev -y
+sudo apt-get install tar python3-pip cmake git wget libeigen3-dev libflann-dev libvtk5-dev libboost-all-dev libusb-1.0-0-dev libqhull-dev libpcap0.8-dev -y
 
 # Install metslib 0.5.3
 wget http://www.coin-or.org/download/source/metslib/metslib-0.5.3.tgz
@@ -19,27 +19,28 @@ rm -rf metslib-0.5.3*
 
 echo "Done installing pcl deps"
 
-git clone https://github.com/PointCloudLibrary/pcl.git
-cd pcl
+#install pcl 1.8.1
+wget https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz
+tar -xf pcl-1.8.1.tar.gz
+cd pcl-pcl-1.8.1
 mkdir build
 cd build
 cmake ..
-make -j2
-sudo make -j2 install
+make
+sudo make install
 cd ..
 rm -rf pcl
 
 echo "Done installing pcl"
 
+#install pcl-python
 git clone https://github.com/strawlab/python-pcl.git
 cd python-pcl
-pip install --upgrade pip
-pip install cython==0.25.2
-pip install numpy
+sudo pip install --upgrade pip
+sudo pip install cython==0.25.2
+sudo pip install numpy
 
-python setup.py build_ext -i
-python setup.py install
+sudo python setup.py build_ext -i
+sudo python setup.py install
 
 echo "Done installing pcl python"
-
-
